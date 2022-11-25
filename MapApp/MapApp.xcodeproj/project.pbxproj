@@ -22,6 +22,10 @@
 		C4CDCEDF2931552E00F288AF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CDCEDE2931552E00F288AF /* LoginViewController.swift */; };
 		C4CDCEE12931554000F288AF /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CDCEE02931554000F288AF /* RegisterViewController.swift */; };
 		C4CDCEE329315FD300F288AF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C4CDCEE229315FD200F288AF /* GoogleService-Info.plist */; };
+		C4CDCEE5293164C600F288AF /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CDCEE4293164C600F288AF /* DatabaseManager.swift */; };
+		C4CDCEE72931655100F288AF /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CDCEE62931655100F288AF /* AuthManager.swift */; };
+		C4CDCEE9293166D800F288AF /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CDCEE8293166D800F288AF /* LoginService.swift */; };
+		C4CDCEEC293166F200F288AF /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4CDCEEB293166F200F288AF /* LoginViewController.storyboard */; };
 		D6B2345049F5A931121E4090 /* Pods_MapApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7C93811279DD23EBD7F3DF7 /* Pods_MapApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +72,10 @@
 		C4CDCEDE2931552E00F288AF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C4CDCEE02931554000F288AF /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		C4CDCEE229315FD200F288AF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C4CDCEE4293164C600F288AF /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		C4CDCEE62931655100F288AF /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		C4CDCEE8293166D800F288AF /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		C4CDCEEB293166F200F288AF /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
 		E7C93811279DD23EBD7F3DF7 /* Pods_MapApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -205,6 +213,8 @@
 				C4CDCEE229315FD200F288AF /* GoogleService-Info.plist */,
 				C4CDCEA42931508F00F288AF /* AppDelegate.swift */,
 				C4CDCEA62931508F00F288AF /* SceneDelegate.swift */,
+				C4CDCEE4293164C600F288AF /* DatabaseManager.swift */,
+				C4CDCEE62931655100F288AF /* AuthManager.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -229,10 +239,20 @@
 		C4CDCEDD2931551600F288AF /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				C4CDCEDE2931552E00F288AF /* LoginViewController.swift */,
+				C4CDCEEA293166DB00F288AF /* Login */,
 				C4CDCEE02931554000F288AF /* RegisterViewController.swift */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		C4CDCEEA293166DB00F288AF /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				C4CDCEDE2931552E00F288AF /* LoginViewController.swift */,
+				C4CDCEEB293166F200F288AF /* LoginViewController.storyboard */,
+				C4CDCEE8293166D800F288AF /* LoginService.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -346,6 +366,7 @@
 			files = (
 				C4CDCEB42931509300F288AF /* LaunchScreen.storyboard in Resources */,
 				C4CDCEE329315FD300F288AF /* GoogleService-Info.plist in Resources */,
+				C4CDCEEC293166F200F288AF /* LoginViewController.storyboard in Resources */,
 				C4CDCEB12931509300F288AF /* Assets.xcassets in Resources */,
 				C4CDCEAC2931508F00F288AF /* Main.storyboard in Resources */,
 			);
@@ -476,11 +497,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4CDCEA92931508F00F288AF /* HomeViewController.swift in Sources */,
+				C4CDCEE72931655100F288AF /* AuthManager.swift in Sources */,
 				C4CDCEA52931508F00F288AF /* AppDelegate.swift in Sources */,
 				C4CDCEAF2931508F00F288AF /* MapApp.xcdatamodeld in Sources */,
+				C4CDCEE9293166D800F288AF /* LoginService.swift in Sources */,
 				C4CDCEE12931554000F288AF /* RegisterViewController.swift in Sources */,
 				C4CDCEDF2931552E00F288AF /* LoginViewController.swift in Sources */,
 				C4CDCEA72931508F00F288AF /* SceneDelegate.swift in Sources */,
+				C4CDCEE5293164C600F288AF /* DatabaseManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
