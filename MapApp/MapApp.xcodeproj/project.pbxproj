@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		C4CDCEA52931508F00F288AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CDCEA42931508F00F288AF /* AppDelegate.swift */; };
 		C4CDCEA72931508F00F288AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CDCEA62931508F00F288AF /* SceneDelegate.swift */; };
-		C4CDCEA92931508F00F288AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CDCEA82931508F00F288AF /* ViewController.swift */; };
+		C4CDCEA92931508F00F288AF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CDCEA82931508F00F288AF /* HomeViewController.swift */; };
 		C4CDCEAC2931508F00F288AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4CDCEAA2931508F00F288AF /* Main.storyboard */; };
 		C4CDCEAF2931508F00F288AF /* MapApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C4CDCEAD2931508F00F288AF /* MapApp.xcdatamodeld */; };
 		C4CDCEB12931509300F288AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4CDCEB02931509300F288AF /* Assets.xcassets */; };
@@ -17,6 +17,8 @@
 		C4CDCEBF2931509300F288AF /* MapAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CDCEBE2931509300F288AF /* MapAppTests.swift */; };
 		C4CDCEC92931509300F288AF /* MapAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CDCEC82931509300F288AF /* MapAppUITests.swift */; };
 		C4CDCECB2931509300F288AF /* MapAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CDCECA2931509300F288AF /* MapAppUITestsLaunchTests.swift */; };
+		C4CDCEDF2931552E00F288AF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CDCEDE2931552E00F288AF /* LoginViewController.swift */; };
+		C4CDCEE12931554000F288AF /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CDCEE02931554000F288AF /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +42,7 @@
 		C4CDCEA12931508F00F288AF /* MapApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4CDCEA42931508F00F288AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4CDCEA62931508F00F288AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C4CDCEA82931508F00F288AF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C4CDCEA82931508F00F288AF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C4CDCEAB2931508F00F288AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C4CDCEAE2931508F00F288AF /* MapApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MapApp.xcdatamodel; sourceTree = "<group>"; };
 		C4CDCEB02931509300F288AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +53,8 @@
 		C4CDCEC42931509300F288AF /* MapAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4CDCEC82931509300F288AF /* MapAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAppUITests.swift; sourceTree = "<group>"; };
 		C4CDCECA2931509300F288AF /* MapAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C4CDCEDE2931552E00F288AF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C4CDCEE02931554000F288AF /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,12 +105,10 @@
 		C4CDCEA32931508F00F288AF /* MapApp */ = {
 			isa = PBXGroup;
 			children = (
-				C4CDCEA42931508F00F288AF /* AppDelegate.swift */,
-				C4CDCEA62931508F00F288AF /* SceneDelegate.swift */,
-				C4CDCEA82931508F00F288AF /* ViewController.swift */,
-				C4CDCEAA2931508F00F288AF /* Main.storyboard */,
-				C4CDCEB02931509300F288AF /* Assets.xcassets */,
-				C4CDCEB22931509300F288AF /* LaunchScreen.storyboard */,
+				C4CDCEDA2931542F00F288AF /* Resources */,
+				C4CDCED92931541C00F288AF /* Models */,
+				C4CDCED82931541700F288AF /* Views */,
+				C4CDCED72931540F00F288AF /* Controllers */,
 				C4CDCEB52931509300F288AF /* Info.plist */,
 				C4CDCEAD2931508F00F288AF /* MapApp.xcdatamodeld */,
 			);
@@ -128,6 +130,66 @@
 				C4CDCECA2931509300F288AF /* MapAppUITestsLaunchTests.swift */,
 			);
 			path = MapAppUITests;
+			sourceTree = "<group>";
+		};
+		C4CDCED72931540F00F288AF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C4CDCEDD2931551600F288AF /* Onboarding */,
+				C4CDCEDC293154F600F288AF /* Tabs */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		C4CDCED82931541700F288AF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C4CDCEB02931509300F288AF /* Assets.xcassets */,
+				C4CDCEDB2931548100F288AF /* Storyboards */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C4CDCED92931541C00F288AF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C4CDCEDA2931542F00F288AF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C4CDCEA42931508F00F288AF /* AppDelegate.swift */,
+				C4CDCEA62931508F00F288AF /* SceneDelegate.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C4CDCEDB2931548100F288AF /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				C4CDCEAA2931508F00F288AF /* Main.storyboard */,
+				C4CDCEB22931509300F288AF /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		C4CDCEDC293154F600F288AF /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				C4CDCEA82931508F00F288AF /* HomeViewController.swift */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
+		};
+		C4CDCEDD2931551600F288AF /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				C4CDCEDE2931552E00F288AF /* LoginViewController.swift */,
+				C4CDCEE02931554000F288AF /* RegisterViewController.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,9 +323,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4CDCEA92931508F00F288AF /* ViewController.swift in Sources */,
+				C4CDCEA92931508F00F288AF /* HomeViewController.swift in Sources */,
 				C4CDCEA52931508F00F288AF /* AppDelegate.swift in Sources */,
 				C4CDCEAF2931508F00F288AF /* MapApp.xcdatamodeld in Sources */,
+				C4CDCEE12931554000F288AF /* RegisterViewController.swift in Sources */,
+				C4CDCEDF2931552E00F288AF /* LoginViewController.swift in Sources */,
 				C4CDCEA72931508F00F288AF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
