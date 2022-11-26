@@ -15,7 +15,7 @@ public class AuthManager {
     
     // MARK: - Public
     
-    public func registerNewUser(email: String, password: String, completion: @escaping (Bool) -> Void) {
+    public func registerNewUser(name: String, email: String, password: String, completion: @escaping (Bool) -> Void) {
         
         DatabaseManager.shared.canCreateUser(with: email) { canCreate in
             if canCreate {
@@ -29,9 +29,10 @@ public class AuthManager {
                     // Insert into database
                         
                     if let idUser = result?.user.uid {
-                        self.firestore?.collection("users").document(idUser).setData([
-                            "email": email,
-                            "id": idUser
+                        Firestore.firestore().collection("users").document(idUser).setData([
+                            "id": idUser,
+                            "name": name,
+                            "email": email
                         ])
                     }
                     completion(true)

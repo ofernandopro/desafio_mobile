@@ -51,26 +51,79 @@
                     <view key="view" contentMode="scaleToFill" id="mz7-G5-kur">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GQe-bh-Lkx">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                            </mapView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="ckP-a3-Kc6"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <constraints>
+                            <constraint firstItem="GQe-bh-Lkx" firstAttribute="leading" secondItem="ckP-a3-Kc6" secondAttribute="leading" id="1t4-LB-N7j"/>
+                            <constraint firstItem="ckP-a3-Kc6" firstAttribute="bottom" secondItem="GQe-bh-Lkx" secondAttribute="bottom" id="NQv-9o-Sw8"/>
+                            <constraint firstItem="GQe-bh-Lkx" firstAttribute="top" secondItem="mz7-G5-kur" secondAttribute="top" id="dnW-fX-4f9"/>
+                            <constraint firstItem="ckP-a3-Kc6" firstAttribute="trailing" secondItem="GQe-bh-Lkx" secondAttribute="trailing" id="mfS-cG-Qfe"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="bVO-Lb-8gJ"/>
+                    <connections>
+                        <outlet property="map" destination="GQe-bh-Lkx" id="SJI-es-smI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NMo-uD-BgP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-220" y="1089"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--Perfil-->
         <scene sceneID="Nnw-5c-m0e">
             <objects>
                 <viewController id="VtE-xQ-hzt" customClass="ProfileViewController" customModule="MapApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dep-9m-0sJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="xZN-D4-Xth">
+                                <rect key="frame" x="24" y="132.5" width="130" height="129"/>
+                                <color key="tintColor" systemColor="systemGray4Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="1fG-Df-LWD"/>
+                                    <constraint firstAttribute="width" constant="130" id="w06-uK-h0e"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="65"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seu Nome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F1m-BD-7rj">
+                                <rect key="frame" x="188" y="158" width="206" height="29"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R6h-aC-MjV">
+                                <rect key="frame" x="34" y="264" width="110" height="31"/>
+                                <color key="tintColor" red="0.1262376227" green="0.47468224349999999" blue="0.32155645459999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Escolher foto"/>
+                                <connections>
+                                    <action selector="didTapChooseImage:" destination="VtE-xQ-hzt" eventType="touchUpInside" id="jWC-Cy-th1"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="7Wi-ha-fgW"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <constraints>
+                            <constraint firstItem="xZN-D4-Xth" firstAttribute="leading" secondItem="7Wi-ha-fgW" secondAttribute="leading" constant="24" id="97I-hU-LwL"/>
+                            <constraint firstItem="F1m-BD-7rj" firstAttribute="top" secondItem="7Wi-ha-fgW" secondAttribute="top" constant="70" id="FbC-ow-bVg"/>
+                            <constraint firstItem="xZN-D4-Xth" firstAttribute="top" secondItem="7Wi-ha-fgW" secondAttribute="top" constant="44" id="PE5-o3-ztr"/>
+                            <constraint firstItem="F1m-BD-7rj" firstAttribute="leading" secondItem="xZN-D4-Xth" secondAttribute="trailing" constant="34" id="RT3-fB-sf0"/>
+                            <constraint firstItem="R6h-aC-MjV" firstAttribute="top" secondItem="xZN-D4-Xth" secondAttribute="bottom" constant="2" id="Vl0-4v-666"/>
+                            <constraint firstItem="R6h-aC-MjV" firstAttribute="centerX" secondItem="xZN-D4-Xth" secondAttribute="centerX" id="ZJZ-ic-nwm"/>
+                            <constraint firstItem="7Wi-ha-fgW" firstAttribute="trailing" secondItem="F1m-BD-7rj" secondAttribute="trailing" constant="20" id="sNU-86-7PL"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="EEX-cR-4LM">
+                    <navigationItem key="navigationItem" title="Perfil" id="EEX-cR-4LM">
                         <barButtonItem key="rightBarButtonItem" title="Sair" id="eLm-4s-hYZ">
                             <color key="tintColor" systemColor="systemRedColor"/>
                             <connections>
@@ -79,12 +132,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="nameLabel" destination="F1m-BD-7rj" id="4WZ-Qs-I4Z"/>
+                        <outlet property="profileImageView" destination="xZN-D4-Xth" id="Fdr-Mw-0Ro"/>
                         <outlet property="signOutButton" destination="eLm-4s-hYZ" id="Rxz-QP-dFJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Q8-P1-BCh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="800" y="1089"/>
+            <point key="canvasLocation" x="800.00000000000011" y="1088.8392857142856"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5M7-Wn-aTG">
@@ -94,6 +149,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bM9-u6-kTL">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <connections>
                         <segue destination="VtE-xQ-hzt" kind="relationship" relationship="rootViewController" id="7h2-jv-gMe"/>
@@ -107,6 +163,10 @@
     <resources>
         <image name="map" catalog="system" width="128" height="110"/>
         <image name="person" catalog="system" width="128" height="117"/>
+        <image name="person.circle.fill" catalog="system" width="128" height="121"/>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

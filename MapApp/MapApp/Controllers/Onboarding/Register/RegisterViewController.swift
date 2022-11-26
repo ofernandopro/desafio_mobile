@@ -10,6 +10,7 @@ import UIKit
 class RegisterViewController: UIViewController {
 
     @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var registerButton: UIButton!
@@ -24,6 +25,10 @@ class RegisterViewController: UIViewController {
                               action: #selector(didTapRegisterButton),
                               for: .touchUpInside)
         
+        self.nameTextField.setLeftPaddingPoints(15)
+        self.emailTextField.setLeftPaddingPoints(15)
+        self.passwordTextField.setLeftPaddingPoints(15)
+        
     }
     
     @objc private func didTapCloseButton() {
@@ -32,15 +37,17 @@ class RegisterViewController: UIViewController {
     
     @objc private func didTapRegisterButton() {
         
+        nameTextField.resignFirstResponder()
         emailTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
         
-        guard let email = emailTextField.text, !email.isEmpty,
+        guard let name = nameTextField.text, !name.isEmpty,
+            let email = emailTextField.text, !email.isEmpty,
               let password = passwordTextField.text, !password.isEmpty else {
                   return
         }
         
-        AuthManager.shared.registerNewUser(email: email, password: password) { registered in
+        AuthManager.shared.registerNewUser(name: name, email: email, password: password) { registered in
             DispatchQueue.main.async {
                 if registered {
                     self.dismiss(animated: true, completion: nil)

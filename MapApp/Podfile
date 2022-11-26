@@ -23,5 +23,8 @@ pod 'Firebase/Database'
 pod 'Firebase/Analytics'
 pod 'Firebase/Crashlytics'
 pod 'Firebase/Firestore'
+pod 'Firebase/Storage'
+pod 'FirebaseUI/Storage'
+pod 'SDWebImage', '~> 5.0'
 
 end

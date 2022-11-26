@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MapKit
 
 extension UITextField {
     func setLeftPaddingPoints(_ amount:CGFloat){
