@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A779582A177F82AC03AE35CB /* Pods_MapApp_MapAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C01F344739B42E462769DF4 /* Pods_MapApp_MapAppUITests.framework */; };
 		C173FBCC085DB20674238FDB /* Pods_MapAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2143AD447D04CE6817CD0BD /* Pods_MapAppTests.framework */; };
+		C47B56E52931B88B00F9413B /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47B56E42931B88B00F9413B /* Extension.swift */; };
 		C4CDCEA52931508F00F288AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CDCEA42931508F00F288AF /* AppDelegate.swift */; };
 		C4CDCEA72931508F00F288AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CDCEA62931508F00F288AF /* SceneDelegate.swift */; };
 		C4CDCEA92931508F00F288AF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CDCEA82931508F00F288AF /* HomeViewController.swift */; };
@@ -26,6 +27,9 @@
 		C4CDCEE72931655100F288AF /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CDCEE62931655100F288AF /* AuthManager.swift */; };
 		C4CDCEE9293166D800F288AF /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CDCEE8293166D800F288AF /* LoginService.swift */; };
 		C4CDCEEC293166F200F288AF /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4CDCEEB293166F200F288AF /* LoginViewController.storyboard */; };
+		C4CDCEEF29316E1F00F288AF /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CDCEEE29316E1F00F288AF /* RegisterService.swift */; };
+		C4CDCEF129316E2F00F288AF /* RegisterViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4CDCEF029316E2F00F288AF /* RegisterViewController.storyboard */; };
+		C4CDCEF32931AFE300F288AF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CDCEF22931AFE300F288AF /* ProfileViewController.swift */; };
 		D6B2345049F5A931121E4090 /* Pods_MapApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7C93811279DD23EBD7F3DF7 /* Pods_MapApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +59,7 @@
 		7227DA20EE64CB608B58B4AC /* Pods-MapApp-MapAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapApp-MapAppUITests.release.xcconfig"; path = "Target Support Files/Pods-MapApp-MapAppUITests/Pods-MapApp-MapAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		AB8616564FF2836AA694C9CD /* Pods-MapApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapApp.debug.xcconfig"; path = "Target Support Files/Pods-MapApp/Pods-MapApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C2143AD447D04CE6817CD0BD /* Pods_MapAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C47B56E42931B88B00F9413B /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		C4CDCEA12931508F00F288AF /* MapApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4CDCEA42931508F00F288AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4CDCEA62931508F00F288AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +81,9 @@
 		C4CDCEE62931655100F288AF /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		C4CDCEE8293166D800F288AF /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		C4CDCEEB293166F200F288AF /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
+		C4CDCEEE29316E1F00F288AF /* RegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterService.swift; sourceTree = "<group>"; };
+		C4CDCEF029316E2F00F288AF /* RegisterViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegisterViewController.storyboard; sourceTree = "<group>"; };
+		C4CDCEF22931AFE300F288AF /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E7C93811279DD23EBD7F3DF7 /* Pods_MapApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -215,6 +223,7 @@
 				C4CDCEA62931508F00F288AF /* SceneDelegate.swift */,
 				C4CDCEE4293164C600F288AF /* DatabaseManager.swift */,
 				C4CDCEE62931655100F288AF /* AuthManager.swift */,
+				C47B56E42931B88B00F9413B /* Extension.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -232,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				C4CDCEA82931508F00F288AF /* HomeViewController.swift */,
+				C4CDCEF22931AFE300F288AF /* ProfileViewController.swift */,
 			);
 			path = Tabs;
 			sourceTree = "<group>";
@@ -239,8 +249,8 @@
 		C4CDCEDD2931551600F288AF /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				C4CDCEED29316E0A00F288AF /* Register */,
 				C4CDCEEA293166DB00F288AF /* Login */,
-				C4CDCEE02931554000F288AF /* RegisterViewController.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -253,6 +263,16 @@
 				C4CDCEE8293166D800F288AF /* LoginService.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		C4CDCEED29316E0A00F288AF /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				C4CDCEE02931554000F288AF /* RegisterViewController.swift */,
+				C4CDCEF029316E2F00F288AF /* RegisterViewController.storyboard */,
+				C4CDCEEE29316E1F00F288AF /* RegisterService.swift */,
+			);
+			path = Register;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -364,6 +384,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4CDCEF129316E2F00F288AF /* RegisterViewController.storyboard in Resources */,
 				C4CDCEB42931509300F288AF /* LaunchScreen.storyboard in Resources */,
 				C4CDCEE329315FD300F288AF /* GoogleService-Info.plist in Resources */,
 				C4CDCEEC293166F200F288AF /* LoginViewController.storyboard in Resources */,
@@ -499,8 +520,11 @@
 				C4CDCEA92931508F00F288AF /* HomeViewController.swift in Sources */,
 				C4CDCEE72931655100F288AF /* AuthManager.swift in Sources */,
 				C4CDCEA52931508F00F288AF /* AppDelegate.swift in Sources */,
+				C47B56E52931B88B00F9413B /* Extension.swift in Sources */,
 				C4CDCEAF2931508F00F288AF /* MapApp.xcdatamodeld in Sources */,
+				C4CDCEEF29316E1F00F288AF /* RegisterService.swift in Sources */,
 				C4CDCEE9293166D800F288AF /* LoginService.swift in Sources */,
+				C4CDCEF32931AFE300F288AF /* ProfileViewController.swift in Sources */,
 				C4CDCEE12931554000F288AF /* RegisterViewController.swift in Sources */,
 				C4CDCEDF2931552E00F288AF /* LoginViewController.swift in Sources */,
 				C4CDCEA72931508F00F288AF /* SceneDelegate.swift in Sources */,

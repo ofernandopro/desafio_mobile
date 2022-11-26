@@ -13,5 +13,8 @@ public class DatabaseManager {
     
     // MARK: - Public
     
+    public func canCreateUser(with email: String, completion: (Bool) -> Void) {
+        completion(true)
+    }
     
 }
