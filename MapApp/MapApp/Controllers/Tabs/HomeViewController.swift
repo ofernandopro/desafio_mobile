@@ -78,10 +78,6 @@ class HomeViewController: UIViewController, MKMapViewDelegate, CLLocationManager
                 let userLatitude = location.coordinate.latitude
                 let userLongitude = location.coordinate.longitude
                 
-                let locationString = location.locationString()
-
-                print("locationString \(locationString)")
-                print("locationString idUser \(idUser)")
                 self.db
                     .collection("users")
                     .document(idUser)
