@@ -16,7 +16,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var signOutButton: UIBarButtonItem!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    
+    @IBOutlet weak var emailLabel: UILabel!
     
     @IBAction func actionSignOutButton(_ sender: Any) {
     
@@ -48,11 +48,14 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+       
         
-
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
+        // Change status bar to white
+        UIApplication.shared.statusBarUIView?.backgroundColor = .white
         
         imagePicker.delegate = self
 
@@ -85,7 +88,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 let emailUser = data["email"] as? String
 
                 self.nameLabel.text = nameUser
-                //self.emailLabel.text = emailUsuario
+                self.emailLabel.text = emailUser
                 
                 if let imageURL = data["imageURL"] as? String {
                     self.profileImageView.sd_setImage(with: URL(string: imageURL), completed: nil)

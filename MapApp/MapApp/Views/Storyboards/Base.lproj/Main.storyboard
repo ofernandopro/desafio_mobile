@@ -15,7 +15,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="PYM-gZ-WTv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor"/>
                         <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
@@ -35,6 +35,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="BSF-Ik-3uU">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <connections>
                         <segue destination="aya-cV-s8z" kind="relationship" relationship="rootViewController" id="NhF-9j-YX1"/>
@@ -44,7 +45,7 @@
             </objects>
             <point key="canvasLocation" x="-220" y="338"/>
         </scene>
-        <!--Home View Controller-->
+        <!--Mapa-->
         <scene sceneID="FRk-6w-wf2">
             <objects>
                 <viewController id="aya-cV-s8z" customClass="HomeViewController" customModule="MapApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -53,7 +54,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GQe-bh-Lkx">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                             </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ckP-a3-Kc6"/>
@@ -61,11 +62,11 @@
                         <constraints>
                             <constraint firstItem="GQe-bh-Lkx" firstAttribute="leading" secondItem="ckP-a3-Kc6" secondAttribute="leading" id="1t4-LB-N7j"/>
                             <constraint firstItem="ckP-a3-Kc6" firstAttribute="bottom" secondItem="GQe-bh-Lkx" secondAttribute="bottom" id="NQv-9o-Sw8"/>
-                            <constraint firstItem="GQe-bh-Lkx" firstAttribute="top" secondItem="mz7-G5-kur" secondAttribute="top" id="dnW-fX-4f9"/>
+                            <constraint firstItem="GQe-bh-Lkx" firstAttribute="top" secondItem="ckP-a3-Kc6" secondAttribute="top" id="dnW-fX-4f9"/>
                             <constraint firstItem="ckP-a3-Kc6" firstAttribute="trailing" secondItem="GQe-bh-Lkx" secondAttribute="trailing" id="mfS-cG-Qfe"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="bVO-Lb-8gJ"/>
+                    <navigationItem key="navigationItem" title="Mapa" id="bVO-Lb-8gJ"/>
                     <connections>
                         <outlet property="map" destination="GQe-bh-Lkx" id="SJI-es-smI"/>
                     </connections>
@@ -110,16 +111,25 @@
                                     <action selector="didTapChooseImage:" destination="VtE-xQ-hzt" eventType="touchUpInside" id="jWC-Cy-th1"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzq-Ik-eSw">
+                                <rect key="frame" x="188" y="203" width="206" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7Wi-ha-fgW"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="xZN-D4-Xth" firstAttribute="leading" secondItem="7Wi-ha-fgW" secondAttribute="leading" constant="24" id="97I-hU-LwL"/>
                             <constraint firstItem="F1m-BD-7rj" firstAttribute="top" secondItem="7Wi-ha-fgW" secondAttribute="top" constant="70" id="FbC-ow-bVg"/>
+                            <constraint firstItem="gzq-Ik-eSw" firstAttribute="leading" secondItem="xZN-D4-Xth" secondAttribute="trailing" constant="34" id="Liq-i9-9aY"/>
                             <constraint firstItem="xZN-D4-Xth" firstAttribute="top" secondItem="7Wi-ha-fgW" secondAttribute="top" constant="44" id="PE5-o3-ztr"/>
+                            <constraint firstItem="gzq-Ik-eSw" firstAttribute="top" secondItem="F1m-BD-7rj" secondAttribute="bottom" constant="16" id="Plq-Go-xGS"/>
                             <constraint firstItem="F1m-BD-7rj" firstAttribute="leading" secondItem="xZN-D4-Xth" secondAttribute="trailing" constant="34" id="RT3-fB-sf0"/>
                             <constraint firstItem="R6h-aC-MjV" firstAttribute="top" secondItem="xZN-D4-Xth" secondAttribute="bottom" constant="2" id="Vl0-4v-666"/>
                             <constraint firstItem="R6h-aC-MjV" firstAttribute="centerX" secondItem="xZN-D4-Xth" secondAttribute="centerX" id="ZJZ-ic-nwm"/>
+                            <constraint firstItem="7Wi-ha-fgW" firstAttribute="trailing" secondItem="gzq-Ik-eSw" secondAttribute="trailing" constant="20" id="qlt-kO-rvW"/>
                             <constraint firstItem="7Wi-ha-fgW" firstAttribute="trailing" secondItem="F1m-BD-7rj" secondAttribute="trailing" constant="20" id="sNU-86-7PL"/>
                         </constraints>
                     </view>
@@ -132,6 +142,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="emailLabel" destination="gzq-Ik-eSw" id="35i-hd-qch"/>
                         <outlet property="nameLabel" destination="F1m-BD-7rj" id="4WZ-Qs-I4Z"/>
                         <outlet property="profileImageView" destination="xZN-D4-Xth" id="Fdr-Mw-0Ro"/>
                         <outlet property="signOutButton" destination="eLm-4s-hYZ" id="Rxz-QP-dFJ"/>
@@ -149,6 +160,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bM9-u6-kTL">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <connections>
@@ -169,6 +181,9 @@
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
