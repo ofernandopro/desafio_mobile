@@ -117,13 +117,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jwo-KG-OV5">
+                                <rect key="frame" x="160.5" y="432.5" width="93" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Test Crash"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7Wi-ha-fgW"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="xZN-D4-Xth" firstAttribute="leading" secondItem="7Wi-ha-fgW" secondAttribute="leading" constant="24" id="97I-hU-LwL"/>
                             <constraint firstItem="F1m-BD-7rj" firstAttribute="top" secondItem="7Wi-ha-fgW" secondAttribute="top" constant="70" id="FbC-ow-bVg"/>
+                            <constraint firstItem="jwo-KG-OV5" firstAttribute="centerY" secondItem="Dep-9m-0sJ" secondAttribute="centerY" id="L4u-xo-iCM"/>
                             <constraint firstItem="gzq-Ik-eSw" firstAttribute="leading" secondItem="xZN-D4-Xth" secondAttribute="trailing" constant="34" id="Liq-i9-9aY"/>
+                            <constraint firstItem="jwo-KG-OV5" firstAttribute="centerX" secondItem="Dep-9m-0sJ" secondAttribute="centerX" id="Lx5-eR-DdL"/>
                             <constraint firstItem="xZN-D4-Xth" firstAttribute="top" secondItem="7Wi-ha-fgW" secondAttribute="top" constant="44" id="PE5-o3-ztr"/>
                             <constraint firstItem="gzq-Ik-eSw" firstAttribute="top" secondItem="F1m-BD-7rj" secondAttribute="bottom" constant="16" id="Plq-Go-xGS"/>
                             <constraint firstItem="F1m-BD-7rj" firstAttribute="leading" secondItem="xZN-D4-Xth" secondAttribute="trailing" constant="34" id="RT3-fB-sf0"/>
@@ -146,6 +153,7 @@
                         <outlet property="nameLabel" destination="F1m-BD-7rj" id="4WZ-Qs-I4Z"/>
                         <outlet property="profileImageView" destination="xZN-D4-Xth" id="Fdr-Mw-0Ro"/>
                         <outlet property="signOutButton" destination="eLm-4s-hYZ" id="Rxz-QP-dFJ"/>
+                        <outlet property="testCrashlyticsButton" destination="jwo-KG-OV5" id="FLn-gr-uLe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Q8-P1-BCh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

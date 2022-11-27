@@ -17,6 +17,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var testCrashlyticsButton: UIButton!
     
     @IBAction func actionSignOutButton(_ sender: Any) {
     
@@ -48,9 +49,16 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
+        testCrashlyticsButton.addTarget(self,
+                                        action: #selector(self.crashButtonTapped(_:)),
+                                        for: .touchUpInside)
         
     }
+    
+    @IBAction func crashButtonTapped(_ sender: AnyObject) {
+          let numbers = [0]
+          let _ = numbers[1]
+      }
     
     override func viewDidAppear(_ animated: Bool) {
         
