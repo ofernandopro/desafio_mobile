@@ -92,6 +92,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 
                 if let imageURL = data["imageURL"] as? String {
                     self.profileImageView.sd_setImage(with: URL(string: imageURL), completed: nil)
+                } else {
+                    self.profileImageView.image = UIImage(systemName: "person.circle.fill")
                 }
                 
             }
@@ -151,12 +153,23 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                             }
                             
                         } else {
-                            print("Erroooo")
-                            //self.exibirMensagem(titulo: "Erro", mensagem: "Erro ao atualizar a foto de perfil. Tente novamente!")
+                            self.presentAlertErrorImage(title: "Erro",
+                                                        message: "Erro ao atualizar a foto de perfil. Tente novamente!",
+                                                        title1: "Ok")
                         }
                 }
             }
         }
+    }
+    
+    func presentAlertErrorImage(title: String, message: String, title1: String) {
+        let alertController = UIAlertController(title: title,
+                                                message: message,
+                                                preferredStyle: .alert)
+        let actionOk = UIAlertAction(title: title1, style: .default, handler: nil)
+        alertController.addAction(actionOk)
+        
+        present(alertController, animated: true, completion: nil)
     }
 
 }
