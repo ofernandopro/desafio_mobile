@@ -91,8 +91,6 @@ class HomeViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         }
         
         
-        
-        
     }
     
     func getIdLoggedUser() {

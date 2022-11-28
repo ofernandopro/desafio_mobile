@@ -37,9 +37,12 @@ Adicionalmente, tentaremos verificar a sua familiarização com as bibliotecas p
 Ao rodar o App pela primeira vez, a tela de login irá aparecer onde você pode logar com sua conta. Se não possuir uma conta, você pode clicar no botão de cadastrar e criar a sua conta, e logo em seguida logar no App. 
 <br />
 <br />
+Ao logar, você poderá navegar por duas Tabs, a primeira mostra um mapa com a sua localização atual e a segunda mostra os dados do seu perfil (nome, email e última loalização no mapa).
+<br />
+<br />
 <img src="assets/screens.png" alt="imagem-telas" />
 <br />
-Ao logar, você poderá navegar por duas Tabs, a primeira mostra um mapa com a sua localização atual e a segunda mostra os dados do seu perfil (nome, email e última loalização no mapa). Na tela de Mapa, para testar o funcionamento, abra o simulador, na barra superior clique em Features > Location > Custom Location e selecione uma latitude e longitude. Isso porque o padrão do simulador é mostrar a localização do usuário na sede da Apple nos Estados Unidos.
+ Na tela de Mapa, para testar o funcionamento, abra o simulador, na barra superior clique em Features > Location > Custom Location e selecione uma latitude e longitude. Isso porque o padrão do simulador é mostrar a localização do usuário na sede da Apple nos Estados Unidos.
 <br />
 <br />
 Na tela de Perfil, você também pode escolher uma imagem de perfil ao clicar no botão "Escolher imagem". Logo abaixo, há um botão para testar o crash no Crashlytics. Ao clicar no botão, o App "crasha" e o erro é enviado diretamente para o Crashlytics:
@@ -47,3 +50,12 @@ Na tela de Perfil, você também pode escolher uma imagem de perfil ao clicar no
 <br />
 <img src="assets/crashlytics.png" alt="imagem-painel-crashlytics" />
 <br />
+Também foi implementado um rastreamento do login e renderização com sucesso com o Firebase Analytics. Para isso, foram criadas as seguintes chaves: "success_login", que é um evento disparado quando o login de um usuário é efetuado com sucesso, "error_on_login" quando ocorre algum erro ao efetuar o login, "sign_up" que é o recomendado do Firebase e que usa a variável AnalyticsEventSignUp, que é quando o cadastro de um novo usuário é realizado com sucesso, e o "map_rendering_success" que é ativado quando o mapa foi renderizado com sucesso. 
+<br />
+<br />
+No Firebase, na aba Debug View, podemos ver o comportamento desses eventos e a quantidade de vezes em que eles são chamados:
+<br />
+<br />
+<img src="assets/analytics.png" alt="imagem-painel-crashlytics" />
+<br />
+
