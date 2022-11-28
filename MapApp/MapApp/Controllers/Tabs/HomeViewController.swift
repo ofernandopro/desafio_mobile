@@ -51,7 +51,6 @@ class HomeViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         locationManager.startUpdatingLocation()
         
         //self.deleteEntityData(entity: "User")
-        
 
     }
     
@@ -183,7 +182,6 @@ class HomeViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         
         do {
             try context.save()
-            print("Sucesso salvar Core Data")
         } catch {
             print("Erro salvar Core Data")
         }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
 
@@ -16,7 +17,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         loginButton.addTarget(self,
                               action: #selector(didTapLoginButton),
                               for: .touchUpInside)
@@ -30,29 +31,47 @@ class LoginViewController: UIViewController {
         
     }
     
-    @objc private func didTapLoginButton() {
+    private let validation: ValidationService
+    
+    init(validation: ValidationService) {
+        self.validation = validation
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.validation = ValidationService()
+        super.init(coder: coder)
+    }
+    
+    @objc func didTapLoginButton() {
         passwordTextField.resignFirstResponder()
         emailTextField.resignFirstResponder()
         
-        guard let email = emailTextField.text, !email.isEmpty,
-              let password = passwordTextField.text, !password.isEmpty else {
-                  return
-        }
-        
-        AuthManager.shared.loginUser(email: email, password: password) { success in
-            DispatchQueue.main.async {
-                if success { // User logged in
-                    self.dismiss(animated: true, completion: nil)
-                } else { // Error ooccurred
-                    let alert = UIAlertController(title: "Erro",
-                                                  message: "Erro ao logar, tente novamente!",
-                                                  preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Ok",
-                                                  style: .cancel,
-                                                  handler: nil))
-                    self.present(alert, animated: true)
+//        guard let email = emailTextField.text, !email.isEmpty,
+//              let password = passwordTextField.text, !password.isEmpty else {
+//                  return
+//        }
+        do {
+            let email = try validation.validateEmail(emailTextField.text)
+            let password = try validation.validatePassword(passwordTextField.text)
+            
+            AuthManager.shared.loginUser(email: email, password: password) { success in
+                DispatchQueue.main.async {
+                    if success { // User logged in
+                        self.dismiss(animated: true, completion: nil)
+                    } else { // Error ooccurred
+                        let alert = UIAlertController(title: "Erro",
+                                                      message: "Erro ao logar, tente novamente!",
+                                                      preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Ok",
+                                                      style: .cancel,
+                                                      handler: nil))
+                        self.present(alert, animated: true)
+                    }
                 }
             }
+        } catch {
+            
         }
         
     }

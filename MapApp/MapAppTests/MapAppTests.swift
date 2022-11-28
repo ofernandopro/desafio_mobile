@@ -25,6 +25,30 @@ class MapAppTests: XCTestCase {
         // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
         // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
     }
+    /*
+    func test_login_with_username_but_no_password() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateInitialViewController() as! LoginViewController
+        let _ = vc.view
+
+        vc.emailTextField!.text = "fernando@gmail.com"
+        vc.passwordTextField!.text = "fernando123"
+
+        vc.didTapLoginButton()
+
+        XCTAssertFalse(vc.errorLabel!.isHidden)
+        XCTAssertEqual("Please enter a password", vc.errorLabel!.text!)
+    }
+    
+    func test_register_new_user() {
+        let authManager = AuthManager()
+
+        authManager.registerNewUser(name: "Teste4", email: "teste4@gmail.com", password: "teste123", completion: nil)
+
+
+        XCTAssertFalse(vc.errorLabel!.isHidden)
+        XCTAssertEqual("Please enter a password", vc.errorLabel!.text!)
+    }*/
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.

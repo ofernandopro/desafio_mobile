@@ -11,6 +11,9 @@
 		C173FBCC085DB20674238FDB /* Pods_MapAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2143AD447D04CE6817CD0BD /* Pods_MapAppTests.framework */; };
 		C47B56E52931B88B00F9413B /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47B56E42931B88B00F9413B /* Extension.swift */; };
 		C47B56E72931BBB800F9413B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C47B56E62931BBB800F9413B /* MapKit.framework */; };
+		C4B29D2029340F3B0094D252 /* ValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B29D1F29340F3B0094D252 /* ValidationService.swift */; };
+		C4B29D2229340F4F0094D252 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B29D2129340F4F0094D252 /* User.swift */; };
+		C4B29D242934160B0094D252 /* LoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B29D232934160B0094D252 /* LoginTests.swift */; };
 		C4CDCEA52931508F00F288AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CDCEA42931508F00F288AF /* AppDelegate.swift */; };
 		C4CDCEA72931508F00F288AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CDCEA62931508F00F288AF /* SceneDelegate.swift */; };
 		C4CDCEA92931508F00F288AF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CDCEA82931508F00F288AF /* HomeViewController.swift */; };
@@ -62,6 +65,9 @@
 		C2143AD447D04CE6817CD0BD /* Pods_MapAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C47B56E42931B88B00F9413B /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		C47B56E62931BBB800F9413B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		C4B29D1F29340F3B0094D252 /* ValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationService.swift; sourceTree = "<group>"; };
+		C4B29D2129340F4F0094D252 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C4B29D232934160B0094D252 /* LoginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTests.swift; sourceTree = "<group>"; };
 		C4CDCEA12931508F00F288AF /* MapApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4CDCEA42931508F00F288AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4CDCEA62931508F00F288AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -181,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				C4CDCEBE2931509300F288AF /* MapAppTests.swift */,
+				C4B29D232934160B0094D252 /* LoginTests.swift */,
 			);
 			path = MapAppTests;
 			sourceTree = "<group>";
@@ -215,6 +222,7 @@
 		C4CDCED92931541C00F288AF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C4B29D2129340F4F0094D252 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -228,6 +236,7 @@
 				C4CDCEE4293164C600F288AF /* DatabaseManager.swift */,
 				C4CDCEE62931655100F288AF /* AuthManager.swift */,
 				C47B56E42931B88B00F9413B /* Extension.swift */,
+				C4B29D1F29340F3B0094D252 /* ValidationService.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -547,9 +556,11 @@
 				C47B56E52931B88B00F9413B /* Extension.swift in Sources */,
 				C4CDCEAF2931508F00F288AF /* MapApp.xcdatamodeld in Sources */,
 				C4CDCEEF29316E1F00F288AF /* RegisterService.swift in Sources */,
+				C4B29D2229340F4F0094D252 /* User.swift in Sources */,
 				C4CDCEE9293166D800F288AF /* LoginService.swift in Sources */,
 				C4CDCEF32931AFE300F288AF /* ProfileViewController.swift in Sources */,
 				C4CDCEE12931554000F288AF /* RegisterViewController.swift in Sources */,
+				C4B29D2029340F3B0094D252 /* ValidationService.swift in Sources */,
 				C4CDCEDF2931552E00F288AF /* LoginViewController.swift in Sources */,
 				C4CDCEA72931508F00F288AF /* SceneDelegate.swift in Sources */,
 				C4CDCEE5293164C600F288AF /* DatabaseManager.swift in Sources */,
@@ -561,6 +572,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4CDCEBF2931509300F288AF /* MapAppTests.swift in Sources */,
+				C4B29D242934160B0094D252 /* LoginTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

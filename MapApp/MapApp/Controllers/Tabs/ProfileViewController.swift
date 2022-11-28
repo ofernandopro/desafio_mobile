@@ -10,6 +10,7 @@ import FirebaseAuth
 import FirebaseStorage
 import FirebaseFirestore
 import FirebaseStorageUI
+import CoreLocation
 
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -17,6 +18,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var lastLatitudeLabel: UILabel!
+    @IBOutlet weak var lastLongitudeLabel: UILabel!
     @IBOutlet weak var testCrashlyticsButton: UIButton!
     
     @IBAction func actionSignOutButton(_ sender: Any) {
@@ -52,6 +55,11 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         testCrashlyticsButton.addTarget(self,
                                         action: #selector(self.crashButtonTapped(_:)),
                                         for: .touchUpInside)
+        
+        testCrashlyticsButton.layer.shadowOffset = CGSize(width: 1, height: 0)
+        testCrashlyticsButton.layer.shadowOpacity = 0.5
+        testCrashlyticsButton.layer.shadowColor = UIColor.lightGray.cgColor
+        testCrashlyticsButton.layer.shadowRadius = 7
         
     }
     
@@ -94,9 +102,27 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 
                 let nameUser = data["name"] as? String
                 let emailUser = data["email"] as? String
-
+                
                 self.nameLabel.text = nameUser
                 self.emailLabel.text = emailUser
+                
+                if let lastLatitudeUser = data["lastLatitude"] as? CLLocationDegrees {
+                    if let lastLongitudeUser = data["lastLongitude"] as? CLLocationDegrees {
+                        
+                        //if lastLatitudeUser != nil && lastLongitudeUser != nil {
+                        let numLat = NSNumber(value: lastLatitudeUser as Double)
+                        let stLat: String = numLat.stringValue
+                        let numLon = NSNumber(value: lastLongitudeUser as Double)
+                        let stLon: String = numLon.stringValue
+                        
+                        self.lastLatitudeLabel.text = "Latitude: " + stLat
+                        self.lastLongitudeLabel.text = "Longitude: " + stLon
+                    }
+                } else {
+                    self.lastLatitudeLabel.text = "Latitude: -"
+                    self.lastLongitudeLabel.text = "Longitude: -"
+                }
+                
                 
                 if let imageURL = data["imageURL"] as? String {
                     self.profileImageView.sd_setImage(with: URL(string: imageURL), completed: nil)
