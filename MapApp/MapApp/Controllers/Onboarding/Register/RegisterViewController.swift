@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAnalytics
 
 class RegisterViewController: UIViewController {
 
@@ -50,6 +51,9 @@ class RegisterViewController: UIViewController {
         AuthManager.shared.registerNewUser(name: name, email: email, password: password) { registered in
             DispatchQueue.main.async {
                 if registered {
+                    Analytics.logEvent(AnalyticsEventSignUp, parameters: [
+                        AnalyticsParameterMethod: self.method
+                      ])
                     self.dismiss(animated: true, completion: nil)
                 } else {
                     let alert = UIAlertController(title: "Erro",

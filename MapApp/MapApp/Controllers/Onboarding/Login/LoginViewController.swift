@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseAnalytics
 
 class LoginViewController: UIViewController {
 
@@ -58,8 +59,13 @@ class LoginViewController: UIViewController {
             AuthManager.shared.loginUser(email: email, password: password) { success in
                 DispatchQueue.main.async {
                     if success { // User logged in
+                        Analytics.logEvent("success_login", parameters: nil)
+//                        Analytics.logEvent(AnalyticsEventLogin, parameters: [
+//                            AnalyticsParameterMethod: self.method
+//                          ])
                         self.dismiss(animated: true, completion: nil)
                     } else { // Error ooccurred
+                        Analytics.logEvent("error_on_login", parameters: nil)
                         let alert = UIAlertController(title: "Erro",
                                                       message: "Erro ao logar, tente novamente!",
                                                       preferredStyle: .alert)

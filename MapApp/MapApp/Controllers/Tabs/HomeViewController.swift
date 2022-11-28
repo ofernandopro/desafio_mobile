@@ -10,6 +10,7 @@ import FirebaseAuth
 import FirebaseFirestore
 import MapKit
 import CoreData
+import FirebaseAnalytics
 
 class HomeViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
@@ -77,6 +78,8 @@ class HomeViewController: UIViewController, MKMapViewDelegate, CLLocationManager
                     let coordinates = CLLocationCoordinate2D(latitude: lastLatitude!, longitude: lastLongitude!)
                                         
                     //let region = MKCoordinateRegion.init(center: coordinates, latitudinalMeters: 1500, longitudinalMeters: 1500)
+                    
+                    Analytics.logEvent("map_rendering_success", parameters: ["lastLatitude": lastLatitude!, "lastLongitude": lastLongitude!])
                     
                     let mapCamera = MKMapCamera(lookingAtCenter: coordinates, fromDistance: 5000, pitch: 50, heading: 0)
                     self.map.setCamera(mapCamera, animated: true)
