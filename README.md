@@ -32,12 +32,12 @@ Seu projeto será avaliado de acordo com os seguintes critérios.
 
 Adicionalmente, tentaremos verificar a sua familiarização com as bibliotecas padrões (standard libs), bem como sua experiência com programação orientada a objetos a partir da estrutura de seu projeto.
 
-<br />
-
 # Documentação
 
 Ao rodar o App pela primeira vez, a tela de login irá aparecer onde você pode logar com sua conta. Se não possuir uma conta, você pode clicar no botão de cadastrar e criar a sua conta, e logo em seguida logar no App. 
 <br />
+<br />
+<img src="assets/screens.png" alt="imagem-telas" />
 <br />
 Ao logar, você poderá navegar por duas Tabs, a primeira mostra um mapa com a sua localização atual e a segunda mostra os dados do seu perfil (nome, email e última loalização no mapa). Na tela de Mapa, para testar o funcionamento, abra o simulador, na barra superior clique em Features > Location > Custom Location e selecione uma latitude e longitude. Isso porque o padrão do simulador é mostrar a localização do usuário na sede da Apple nos Estados Unidos.
 <br />
