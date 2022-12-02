@@ -26,18 +26,18 @@ extension CLLocation {
     func locationString() -> String {
         return "\(latitudeString()),\(longitudeString())"
     }
-
+    
     // Get string for each component
     //This is not necessary, as you could combine this into formattedLabel: label
     //But it's good to have these separate in case you need just one of the components
     func latitudeString() -> String {
         return "\(self.coordinate.latitude)"
     }
-
+    
     func longitudeString() -> String {
         return "\(self.coordinate.longitude)"
     }
-
+    
 }
 
 extension UIApplication {
@@ -49,7 +49,7 @@ extension UIApplication {
             } else {
                 let statusBarView = UIView(frame: UIApplication.shared.statusBarFrame)
                 statusBarView.tag = tag
-
+                
                 self.keyWindow?.addSubview(statusBarView)
                 return statusBarView
             }
@@ -61,3 +61,11 @@ extension UIApplication {
         return nil
     }
 }
+    
+extension String {
+    var isAlphanumeric: Bool {
+        allSatisfy { $0.isLetter || $0.isNumber }
+    }
+}
+    
+    

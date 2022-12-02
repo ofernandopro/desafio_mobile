@@ -12,7 +12,7 @@ import MapKit
 import CoreData
 import FirebaseAnalytics
 
-class HomeViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class HomeViewController: UIViewController {
     
     @IBOutlet weak var map: MKMapView!
     var locationManager = CLLocationManager()
@@ -31,36 +31,40 @@ class HomeViewController: UIViewController, MKMapViewDelegate, CLLocationManager
             present(loginVC, animated: false)
         }
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Change status bar to clear
+    
+    func getIdLoggedUser() {
+        if let id = auth.currentUser?.uid {
+            self.idUser = id
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // Change status bar to white
         UIApplication.shared.statusBarUIView?.backgroundColor = .white
         
         auth = Auth.auth()
         db = Firestore.firestore()
         
         self.getIdLoggedUser()
-        
         self.handleIsAuthenticated()
-        //self.navigationController?.isNavigationBarHidden = true
-        
-        map.delegate = self
-        locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
-        
-        //self.deleteEntityData(entity: "User")
+    }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         
         self.getIdLoggedUser()
         
-        print("idUser \(idUser)")
-        
+        if idUser != "" {
+            map.delegate = self
+            locationManager.delegate = self
+            locationManager.requestWhenInUseAuthorization()
+            locationManager.startUpdatingLocation()
+        }
+                        
         let usersRef = self.db
           .collection("users")
         .document(idUser)
@@ -69,65 +73,26 @@ class HomeViewController: UIViewController, MKMapViewDelegate, CLLocationManager
             
             if let data = snapshot?.data() {
                 
-                
                 let lastLatitude = data["lastLatitude"] as? CLLocationDegrees
                 let lastLongitude = data["lastLongitude"] as? CLLocationDegrees
                 
-                
                 if lastLatitude != nil && lastLongitude != nil {
                     let coordinates = CLLocationCoordinate2D(latitude: lastLatitude!, longitude: lastLongitude!)
-                                        
-                    //let region = MKCoordinateRegion.init(center: coordinates, latitudinalMeters: 1500, longitudinalMeters: 1500)
-                    
+                                                            
                     Analytics.logEvent("map_rendering_success", parameters: ["lastLatitude": lastLatitude!, "lastLongitude": lastLongitude!])
                     
                     let mapCamera = MKMapCamera(lookingAtCenter: coordinates, fromDistance: 5000, pitch: 50, heading: 0)
                     self.map.setCamera(mapCamera, animated: true)
                     
-                    //self.map.setRegion(region, animated: true)
                 }
                 
             }
         }
         
-        
     }
     
-    func getIdLoggedUser() {
-        if let id = auth.currentUser?.uid {
-            self.idUser = id
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
-        self.center()
-        
-        let authStat = CLLocationManager.authorizationStatus()
-        
-        if authStat == .denied || authStat == .restricted || authStat == .notDetermined {
-            
-            self.presentAlertLocationPermission(title: "Permissão de localicação",
-                                           message: "Para que você possa usar o aplicativo, precisamos da sua localização. Por favor, habilite.",
-                                           title1: "Ok")
-            
-        } else {
-            
-            if let location = locations.last {
-                self.userLastLatitude = location.coordinate.latitude
-                self.userLastLongitude = location.coordinate.longitude
-                
-                self.updateDB()
-                
-            }
-            
-        }
-        //locationManager.stopUpdatingLocation()
-        
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        //self.updateDB()
+    override func viewDidDisappear(_ animated: Bool) {
+        CoreData.getDataFromCoreData()
     }
     
     func updateDB() {
@@ -147,167 +112,11 @@ class HomeViewController: UIViewController, MKMapViewDelegate, CLLocationManager
             let stLon: String = numLon.stringValue
             
             
-            if checkUserExistCoreData() {
-                self.updateCoreData(lat: stLat, lon: stLon)
+            if CoreData.checkUserExistCoreData(id: idUser) {
+                CoreData.updateCoreData(id: idUser, lat: stLat, lon: stLon)
             } else {
-                self.saveCoreData(lat: stLat, lon: stLon)
+                CoreData.saveCoreData(id: idUser, lat: stLat, lon: stLon)
             }
-        }
-    }
-    
-    // Remove todas as instâncias do Core Data
-    func deleteEntityData(entity : String) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        
-        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
-        
-        do {
-            try context.execute(deleteRequest)
-            try context.save()
-        } catch {
-            print ("There was an error")
-        }
-    }
-    
-    func saveCoreData(lat: String, lon: String) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        
-        let user = NSEntityDescription.insertNewObject(forEntityName: "User", into: context)
-        
-        user.setValue(idUser, forKey: "id")
-        user.setValue(lat, forKey: "lastLatitude")
-        user.setValue(lon, forKey: "lastLongitude")
-        
-        do {
-            try context.save()
-        } catch {
-            print("Erro salvar Core Data")
-        }
-        
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        self.getDataFromCoreData()
-    }
-    
-    func updateCoreData(lat: String, lon: String) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-                
-        
-        let req = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
-        
-        do {
-            let users = try context.fetch(req)
-            
-            if users.count > 0 {
-                
-                for user in users as! [NSManagedObject] {
-                    if let userId = user.value(forKey: "id") as? String {
-                        if userId == self.idUser {
-                            
-                            user.setValue(lat, forKey: "lastLatitude")
-                            user.setValue(lon, forKey: "lastLongitude")
-                            
-                        }
-                    }
-                }
-                
-            }
-        } catch {
-            print("Erro ao recuperar do Core Data")
-        }
-        
-        do {
-            try context.save()
-        } catch {
-            print("Erro salvar Core Data")
-        }
-        
-    }
-    
-    func checkUserExistCoreData() -> Bool {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        
-        let req = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
-        
-        do {
-            let users = try context.fetch(req)
-            
-            if users.count > 0 {
-                
-                for user in users as! [NSManagedObject] {
-                    if let userId = user.value(forKey: "id") as? String {
-                        if userId == self.idUser {
-                            return true
-                        }
-                    }
-                }
-                return false
-                
-            } else {
-                return false
-            }
-        } catch {
-            print("Erro ao recuperar do Core Data")
-        }
-        return false
-    }
-    
-    func getDataFromCoreData() {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        
-        let req = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
-        
-        do {
-            let users = try context.fetch(req)
-            
-            if users.count > 0 {
-                
-                for user in users as! [NSManagedObject] {
-                    if let userId = user.value(forKey: "id") {
-                        if let lastLatitude = user.value(forKey: "lastLatitude") {
-                            if let lastLongitude = user.value(forKey: "lastLongitude") {
-                                print("coredata userId \(userId)")
-                                print("coredata lastLatitude \(lastLatitude)")
-                                print("coredata lastLongitude \(lastLongitude)")
-                            }
-                        }
-                    }
-                }
-                
-            } else {
-                print("Nenhum usuário encontrado")
-            }
-        } catch {
-            print("Erro ao recuperar do Core Data")
-        }
-    }
-    
-    func center() {
-        if let coordinates = locationManager.location?.coordinate {
-            //let region = MKCoordinateRegion.init(center: coordinates, latitudinalMeters: 1500, longitudinalMeters: 1500)
-            
-            let mapCamera = MKMapCamera(lookingAtCenter: coordinates, fromDistance: 5000, pitch: 50, heading: 0)
-            self.map.setCamera(mapCamera, animated: true)
-            
-            //self.map.setRegion(region, animated: true)
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if status != .authorizedWhenInUse && status != .notDetermined {
-            
-            presentAlertOpenConfig(title: "Permissão de localicação",
-                                   message: "Para que você possa usar o aplicativo, precisamos da sua localização. Por favor, habilite.",
-                                   title1: "Abrir Configurações",
-                                   title2: "Cancelar")
-            
         }
     }
     
@@ -342,4 +151,54 @@ class HomeViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         present(alertController, animated: true, completion: nil)
     }
 
+}
+
+extension HomeViewController: MKMapViewDelegate, CLLocationManagerDelegate {
+    
+    func center() {
+        if let coordinates = locationManager.location?.coordinate {
+            
+            let mapCamera = MKMapCamera(lookingAtCenter: coordinates, fromDistance: 5000, pitch: 50, heading: 0)
+            self.map.setCamera(mapCamera, animated: true)
+            
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        self.center()
+        
+        let authStat = CLLocationManager.authorizationStatus()
+        
+        if authStat == .denied || authStat == .restricted || authStat == .notDetermined {
+            
+            self.presentAlertLocationPermission(title: "Permissão de localicação",
+                                           message: "Para que você possa usar o aplicativo, precisamos da sua localização. Por favor, habilite.",
+                                           title1: "Ok")
+            
+        } else {
+            
+            if let location = locations.last {
+                self.userLastLatitude = location.coordinate.latitude
+                self.userLastLongitude = location.coordinate.longitude
+                
+                self.updateDB()
+                
+            }
+            
+        }
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status != .authorizedWhenInUse && status != .notDetermined {
+            
+            self.presentAlertOpenConfig(title: "Permissão de localicação",
+                                   message: "Para que você possa usar o aplicativo, precisamos da sua localização. Por favor, habilite.",
+                                   title1: "Abrir Configurações",
+                                   title2: "Cancelar")
+            
+        }
+    }
+    
 }

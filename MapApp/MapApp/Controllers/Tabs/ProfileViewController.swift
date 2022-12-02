@@ -12,7 +12,7 @@ import FirebaseFirestore
 import FirebaseStorageUI
 import CoreLocation
 
-class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ProfileViewController: UIViewController {
 
     @IBOutlet weak var signOutButton: UIBarButtonItem!
     @IBOutlet weak var profileImageView: UIImageView!
@@ -23,7 +23,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var testCrashlyticsButton: UIButton!
     
     @IBAction func actionSignOutButton(_ sender: Any) {
-    
         do {
             try Auth.auth().signOut()
         } catch {
@@ -31,7 +30,16 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
         
         self.handleIsAuthenticated()
-        
+    }
+    
+    @IBAction func didTapChooseImage(_ sender: Any) {
+        imagePicker.sourceType = .savedPhotosAlbum
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    @IBAction func crashButtonTapped(_ sender: AnyObject) {
+          let numbers = [0]
+          let _ = numbers[1]
     }
     
     var auth: Auth!
@@ -49,6 +57,12 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     
+    func getIdLoggedUser() {
+        if let id = auth.currentUser?.uid {
+            self.idUser = id
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -62,11 +76,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         testCrashlyticsButton.layer.shadowRadius = 7
         
     }
-    
-    @IBAction func crashButtonTapped(_ sender: AnyObject) {
-          let numbers = [0]
-          let _ = numbers[1]
-      }
     
     override func viewDidAppear(_ animated: Bool) {
         
@@ -82,12 +91,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         self.getIdLoggedUser()
         self.getUserData()
         
-    }
-    
-    func getIdLoggedUser() {
-        if let id = auth.currentUser?.uid {
-            self.idUser = id
-        }
     }
     
     func getUserData() {
@@ -109,7 +112,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 if let lastLatitudeUser = data["lastLatitude"] as? CLLocationDegrees {
                     if let lastLongitudeUser = data["lastLongitude"] as? CLLocationDegrees {
                         
-                        //if lastLatitudeUser != nil && lastLongitudeUser != nil {
                         let numLat = NSNumber(value: lastLatitudeUser as Double)
                         let stLat: String = numLat.stringValue
                         let numLon = NSNumber(value: lastLongitudeUser as Double)
@@ -136,13 +138,21 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
     }
     
-    @IBAction func didTapChooseImage(_ sender: Any) {
-        imagePicker.sourceType = .savedPhotosAlbum
-        present(imagePicker, animated: true, completion: nil)
+    func presentAlertErrorImage(title: String, message: String, title1: String) {
+        let alertController = UIAlertController(title: title,
+                                                message: message,
+                                                preferredStyle: .alert)
+        let actionOk = UIAlertAction(title: title1, style: .default, handler: nil)
+        alertController.addAction(actionOk)
+        
+        present(alertController, animated: true, completion: nil)
     }
-    
-    // Chama o método para salvar imagem no firebase ao finalizar
-    // a escolha da imagem
+
+}
+
+extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
+    // Calls method to save image on Firebase
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         let imageRecovered = info[
@@ -150,9 +160,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         ] as! UIImage
         
         saveImageFirebase(imageRecovered: imageRecovered)
-        
         imagePicker.dismiss(animated: true, completion: nil)
-        
     }
     
     func saveImageFirebase(imageRecovered: UIImage) {
@@ -164,17 +172,13 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             .child("images")
         
         if let imageUpload = imageRecovered.jpegData(compressionQuality: 0.5) {
-            
             if let loggedUser = auth.currentUser {
-                
                 let idUser = loggedUser.uid
                 let imageName = "\(idUser).jpg"
                 
                 let fotoPerfilRef = images.child("profile").child(imageName)
                     fotoPerfilRef.putData(imageUpload, metadata: nil) { (metaData, error) in
-                        
                         if error == nil {
-                            
                             fotoPerfilRef.downloadURL { (url, error) in
                                 if let urlImage = url?.absoluteString {
                                     self.db
@@ -185,7 +189,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                                       ])
                                 }
                             }
-                            
                         } else {
                             self.presentAlertErrorImage(title: "Erro",
                                                         message: "Erro ao atualizar a foto de perfil. Tente novamente!",
@@ -196,14 +199,4 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     
-    func presentAlertErrorImage(title: String, message: String, title1: String) {
-        let alertController = UIAlertController(title: title,
-                                                message: message,
-                                                preferredStyle: .alert)
-        let actionOk = UIAlertAction(title: title1, style: .default, handler: nil)
-        alertController.addAction(actionOk)
-        
-        present(alertController, animated: true, completion: nil)
-    }
-
 }

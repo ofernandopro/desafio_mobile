@@ -35,6 +35,8 @@
 		C4CDCEEF29316E1F00F288AF /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CDCEEE29316E1F00F288AF /* RegisterService.swift */; };
 		C4CDCEF129316E2F00F288AF /* RegisterViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4CDCEF029316E2F00F288AF /* RegisterViewController.storyboard */; };
 		C4CDCEF32931AFE300F288AF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CDCEF22931AFE300F288AF /* ProfileViewController.swift */; };
+		C4E50EB829399F4900A95712 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E50EB729399F4900A95712 /* CoreData.swift */; };
+		C4E50EBA2939ADA500A95712 /* RegisterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E50EB92939ADA400A95712 /* RegisterTests.swift */; };
 		D6B2345049F5A931121E4090 /* Pods_MapApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7C93811279DD23EBD7F3DF7 /* Pods_MapApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +96,8 @@
 		C4CDCEEE29316E1F00F288AF /* RegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterService.swift; sourceTree = "<group>"; };
 		C4CDCEF029316E2F00F288AF /* RegisterViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegisterViewController.storyboard; sourceTree = "<group>"; };
 		C4CDCEF22931AFE300F288AF /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		C4E50EB729399F4900A95712 /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
+		C4E50EB92939ADA400A95712 /* RegisterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTests.swift; sourceTree = "<group>"; };
 		E7C93811279DD23EBD7F3DF7 /* Pods_MapApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -192,6 +196,7 @@
 			children = (
 				C4CDCEBE2931509300F288AF /* MapAppTests.swift */,
 				C4B29D232934160B0094D252 /* LoginTests.swift */,
+				C4E50EB92939ADA400A95712 /* RegisterTests.swift */,
 			);
 			path = MapAppTests;
 			sourceTree = "<group>";
@@ -241,6 +246,7 @@
 				C4CDCEE62931655100F288AF /* AuthManager.swift */,
 				C47B56E42931B88B00F9413B /* Extension.swift */,
 				C4B29D1F29340F3B0094D252 /* ValidationService.swift */,
+				C4E50EB729399F4900A95712 /* CoreData.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -558,6 +564,7 @@
 				C4CDCEE72931655100F288AF /* AuthManager.swift in Sources */,
 				C4CDCEA52931508F00F288AF /* AppDelegate.swift in Sources */,
 				C47B56E52931B88B00F9413B /* Extension.swift in Sources */,
+				C4E50EB829399F4900A95712 /* CoreData.swift in Sources */,
 				C4CDCEAF2931508F00F288AF /* MapApp.xcdatamodeld in Sources */,
 				C4CDCEEF29316E1F00F288AF /* RegisterService.swift in Sources */,
 				C4B29D2229340F4F0094D252 /* User.swift in Sources */,
@@ -577,6 +584,7 @@
 			files = (
 				C4CDCEBF2931509300F288AF /* MapAppTests.swift in Sources */,
 				C4B29D242934160B0094D252 /* LoginTests.swift in Sources */,
+				C4E50EBA2939ADA500A95712 /* RegisterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

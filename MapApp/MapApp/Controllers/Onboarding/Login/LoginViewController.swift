@@ -19,6 +19,10 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setupDesign()
+    }
+    
+    func setupDesign() {
         loginButton.addTarget(self,
                               action: #selector(didTapLoginButton),
                               for: .touchUpInside)
@@ -29,7 +33,6 @@ class LoginViewController: UIViewController {
         
         self.emailTextField.setLeftPaddingPoints(15)
         self.passwordTextField.setLeftPaddingPoints(15)
-        
     }
     
     private let validation: ValidationService
@@ -48,10 +51,6 @@ class LoginViewController: UIViewController {
         passwordTextField.resignFirstResponder()
         emailTextField.resignFirstResponder()
         
-//        guard let email = emailTextField.text, !email.isEmpty,
-//              let password = passwordTextField.text, !password.isEmpty else {
-//                  return
-//        }
         do {
             let email = try validation.validateEmail(emailTextField.text)
             let password = try validation.validatePassword(passwordTextField.text)
@@ -60,12 +59,11 @@ class LoginViewController: UIViewController {
                 DispatchQueue.main.async {
                     if success { // User logged in
                         Analytics.logEvent("success_login", parameters: nil)
-//                        Analytics.logEvent(AnalyticsEventLogin, parameters: [
-//                            AnalyticsParameterMethod: self.method
-//                          ])
+                        
                         self.dismiss(animated: true, completion: nil)
                     } else { // Error ooccurred
                         Analytics.logEvent("error_on_login", parameters: nil)
+                        
                         let alert = UIAlertController(title: "Erro",
                                                       message: "Erro ao logar, tente novamente!",
                                                       preferredStyle: .alert)
@@ -77,7 +75,7 @@ class LoginViewController: UIViewController {
                 }
             }
         } catch {
-            
+            print("Error on Signing Up")
         }
         
     }
