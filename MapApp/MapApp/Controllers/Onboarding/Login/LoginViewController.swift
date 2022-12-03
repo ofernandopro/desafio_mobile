@@ -75,6 +75,9 @@ class LoginViewController: UIViewController {
                 }
             }
         } catch {
+            self.presentAlertError(title: "Erro",
+                                   message: "Erro ao logar, tente novamente!",
+                                   title1: "Ok")
             print("Error on Signing Up")
         }
         
@@ -84,6 +87,16 @@ class LoginViewController: UIViewController {
         let registerVC = RegisterService().alert()
         registerVC.modalPresentationStyle = .fullScreen
         present(registerVC, animated: true)
+    }
+    
+    func presentAlertError(title: String, message: String, title1: String) {
+        let alertController = UIAlertController(title: title,
+                                                message: message,
+                                                preferredStyle: .alert)
+        let actionOk = UIAlertAction(title: title1, style: .default, handler: nil)
+        alertController.addAction(actionOk)
+        
+        present(alertController, animated: true, completion: nil)
     }
     
 }

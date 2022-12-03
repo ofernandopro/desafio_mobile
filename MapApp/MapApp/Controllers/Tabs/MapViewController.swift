@@ -12,15 +12,15 @@ import MapKit
 import CoreData
 import FirebaseAnalytics
 
-class HomeViewController: UIViewController {
+class MapViewController: UIViewController {
     
     @IBOutlet weak var map: MKMapView!
     var locationManager = CLLocationManager()
-    var counter = 0
     var idUser: String = ""
     var auth: Auth!
     var db: Firestore!
     
+    var user = UserModel()
     var userLastLatitude: CLLocationDegrees?
     var userLastLongitude: CLLocationDegrees?
     
@@ -73,10 +73,15 @@ class HomeViewController: UIViewController {
             
             if let data = snapshot?.data() {
                 
+                let email = data["email"] as? String
+                let imageProfile = data["imageURL"] as? String
                 let lastLatitude = data["lastLatitude"] as? CLLocationDegrees
                 let lastLongitude = data["lastLongitude"] as? CLLocationDegrees
                 
                 if lastLatitude != nil && lastLongitude != nil {
+                    
+                    self.user = UserModel(id: self.idUser, email: email ?? "", imageProfile: imageProfile ?? "", lastLatitude: lastLatitude!, lastLongitude: lastLongitude!)
+                    
                     let coordinates = CLLocationCoordinate2D(latitude: lastLatitude!, longitude: lastLongitude!)
                                                             
                     Analytics.logEvent("map_rendering_success", parameters: ["lastLatitude": lastLatitude!, "lastLongitude": lastLongitude!])
@@ -88,7 +93,7 @@ class HomeViewController: UIViewController {
                 
             }
         }
-        
+                
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -104,13 +109,12 @@ class HomeViewController: UIViewController {
                     "lastLatitude": self.userLastLatitude!,
                     "lastLongitude": self.userLastLongitude!
                 ])
-            
+                        
             //Send these latitude and longitude values to your firebase,
             let numLat = NSNumber(value: self.userLastLatitude! as Double)
             let stLat: String = numLat.stringValue
             let numLon = NSNumber(value: self.userLastLongitude! as Double)
             let stLon: String = numLon.stringValue
-            
             
             if CoreData.checkUserExistCoreData(id: idUser) {
                 CoreData.updateCoreData(id: idUser, lat: stLat, lon: stLon)
@@ -153,7 +157,7 @@ class HomeViewController: UIViewController {
 
 }
 
-extension HomeViewController: MKMapViewDelegate, CLLocationManagerDelegate {
+extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
     
     func center() {
         if let coordinates = locationManager.location?.coordinate {

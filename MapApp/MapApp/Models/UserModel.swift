@@ -18,10 +18,13 @@ class UserModel {
         self.lastLongitude = lastLongitude
     }
     
-    var id: String
-    var email: String
-    var imageProfile: String
-    var lastLatitude: CLLocationDegrees
-    var lastLongitude: CLLocationDegrees
+    internal init() {
+    }
+    
+    var id: String?
+    var email: String?
+    var imageProfile: String?
+    var lastLatitude: CLLocationDegrees?
+    var lastLongitude: CLLocationDegrees?
     
 }

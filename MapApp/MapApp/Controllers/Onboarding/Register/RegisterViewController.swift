@@ -85,7 +85,6 @@ class RegisterViewController: UIViewController {
             self.presentAlertError(title: "Erro",
                                    message: "Erro ao criar conta, tente novamente!",
                                    title1: "Ok")
-            print("Error on Registering")
         }
         
     }

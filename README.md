@@ -18,7 +18,7 @@ Este desafio deve ser feito por você em sua casa. Gaste o tempo que você quise
 5. <s>Rastrear login com sucesso e renderização com sucesso com Analytics (enviar um evento com dados considerados primordiais nesses dois casos);</s>
 6. <s>Rastrear os erros e envia-los ao Crashlytics;</s>
 7. <s>Armazenar na base de dados local (preferência por</s> WatermelonDB, <s>mas pode usar outro banco de dados) o usuário logado e sua última posição no mapa;</s>
-8. <s>Testar fluxo de login (unit e e2e);</s>
+8. <s>Testar fluxo de login (unit</s> e e2e);
 9. Testar fluxo da home (unit e e2e).
 
 # Avaliação

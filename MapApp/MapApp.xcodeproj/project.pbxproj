@@ -13,11 +13,11 @@
 		C47B56E72931BBB800F9413B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C47B56E62931BBB800F9413B /* MapKit.framework */; };
 		C49F54E52934FB6000EDF0A1 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C49F54E42934FB6000EDF0A1 /* AdSupport.framework */; };
 		C4B29D2029340F3B0094D252 /* ValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B29D1F29340F3B0094D252 /* ValidationService.swift */; };
-		C4B29D2229340F4F0094D252 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B29D2129340F4F0094D252 /* User.swift */; };
+		C4B29D2229340F4F0094D252 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B29D2129340F4F0094D252 /* UserModel.swift */; };
 		C4B29D242934160B0094D252 /* LoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B29D232934160B0094D252 /* LoginTests.swift */; };
 		C4CDCEA52931508F00F288AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CDCEA42931508F00F288AF /* AppDelegate.swift */; };
 		C4CDCEA72931508F00F288AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CDCEA62931508F00F288AF /* SceneDelegate.swift */; };
-		C4CDCEA92931508F00F288AF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CDCEA82931508F00F288AF /* HomeViewController.swift */; };
+		C4CDCEA92931508F00F288AF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CDCEA82931508F00F288AF /* MapViewController.swift */; };
 		C4CDCEAC2931508F00F288AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4CDCEAA2931508F00F288AF /* Main.storyboard */; };
 		C4CDCEAF2931508F00F288AF /* MapApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C4CDCEAD2931508F00F288AF /* MapApp.xcdatamodeld */; };
 		C4CDCEB12931509300F288AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4CDCEB02931509300F288AF /* Assets.xcassets */; };
@@ -28,7 +28,6 @@
 		C4CDCEDF2931552E00F288AF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CDCEDE2931552E00F288AF /* LoginViewController.swift */; };
 		C4CDCEE12931554000F288AF /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CDCEE02931554000F288AF /* RegisterViewController.swift */; };
 		C4CDCEE329315FD300F288AF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C4CDCEE229315FD200F288AF /* GoogleService-Info.plist */; };
-		C4CDCEE5293164C600F288AF /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CDCEE4293164C600F288AF /* DatabaseManager.swift */; };
 		C4CDCEE72931655100F288AF /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CDCEE62931655100F288AF /* AuthManager.swift */; };
 		C4CDCEE9293166D800F288AF /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CDCEE8293166D800F288AF /* LoginService.swift */; };
 		C4CDCEEC293166F200F288AF /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4CDCEEB293166F200F288AF /* LoginViewController.storyboard */; };
@@ -70,12 +69,12 @@
 		C47B56E62931BBB800F9413B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		C49F54E42934FB6000EDF0A1 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		C4B29D1F29340F3B0094D252 /* ValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationService.swift; sourceTree = "<group>"; };
-		C4B29D2129340F4F0094D252 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C4B29D2129340F4F0094D252 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		C4B29D232934160B0094D252 /* LoginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTests.swift; sourceTree = "<group>"; };
 		C4CDCEA12931508F00F288AF /* MapApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4CDCEA42931508F00F288AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4CDCEA62931508F00F288AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C4CDCEA82931508F00F288AF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		C4CDCEA82931508F00F288AF /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		C4CDCEAB2931508F00F288AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C4CDCEAE2931508F00F288AF /* MapApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MapApp.xcdatamodel; sourceTree = "<group>"; };
 		C4CDCEB02931509300F288AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -89,7 +88,6 @@
 		C4CDCEDE2931552E00F288AF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C4CDCEE02931554000F288AF /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		C4CDCEE229315FD200F288AF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		C4CDCEE4293164C600F288AF /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		C4CDCEE62931655100F288AF /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		C4CDCEE8293166D800F288AF /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		C4CDCEEB293166F200F288AF /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
@@ -231,7 +229,7 @@
 		C4CDCED92931541C00F288AF /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C4B29D2129340F4F0094D252 /* User.swift */,
+				C4B29D2129340F4F0094D252 /* UserModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -242,7 +240,6 @@
 				C4CDCEE229315FD200F288AF /* GoogleService-Info.plist */,
 				C4CDCEA42931508F00F288AF /* AppDelegate.swift */,
 				C4CDCEA62931508F00F288AF /* SceneDelegate.swift */,
-				C4CDCEE4293164C600F288AF /* DatabaseManager.swift */,
 				C4CDCEE62931655100F288AF /* AuthManager.swift */,
 				C47B56E42931B88B00F9413B /* Extension.swift */,
 				C4B29D1F29340F3B0094D252 /* ValidationService.swift */,
@@ -263,7 +260,7 @@
 		C4CDCEDC293154F600F288AF /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
-				C4CDCEA82931508F00F288AF /* HomeViewController.swift */,
+				C4CDCEA82931508F00F288AF /* MapViewController.swift */,
 				C4CDCEF22931AFE300F288AF /* ProfileViewController.swift */,
 			);
 			path = Tabs;
@@ -560,21 +557,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4CDCEA92931508F00F288AF /* HomeViewController.swift in Sources */,
+				C4CDCEA92931508F00F288AF /* MapViewController.swift in Sources */,
 				C4CDCEE72931655100F288AF /* AuthManager.swift in Sources */,
 				C4CDCEA52931508F00F288AF /* AppDelegate.swift in Sources */,
 				C47B56E52931B88B00F9413B /* Extension.swift in Sources */,
 				C4E50EB829399F4900A95712 /* CoreData.swift in Sources */,
 				C4CDCEAF2931508F00F288AF /* MapApp.xcdatamodeld in Sources */,
 				C4CDCEEF29316E1F00F288AF /* RegisterService.swift in Sources */,
-				C4B29D2229340F4F0094D252 /* User.swift in Sources */,
+				C4B29D2229340F4F0094D252 /* UserModel.swift in Sources */,
 				C4CDCEE9293166D800F288AF /* LoginService.swift in Sources */,
 				C4CDCEF32931AFE300F288AF /* ProfileViewController.swift in Sources */,
 				C4CDCEE12931554000F288AF /* RegisterViewController.swift in Sources */,
 				C4B29D2029340F3B0094D252 /* ValidationService.swift in Sources */,
 				C4CDCEDF2931552E00F288AF /* LoginViewController.swift in Sources */,
 				C4CDCEA72931508F00F288AF /* SceneDelegate.swift in Sources */,
-				C4CDCEE5293164C600F288AF /* DatabaseManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

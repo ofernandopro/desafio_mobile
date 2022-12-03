@@ -16,32 +16,22 @@ public class AuthManager {
     // MARK: - Public
     
     public func registerNewUser(name: String, email: String, password: String, completion: @escaping (Bool) -> Void) {
-        
-        DatabaseManager.shared.canCreateUser(with: email) { canCreate in
-            if canCreate {
             
-                Auth.auth().createUser(withEmail: email, password: password) { result, error in
-                    guard error == nil, result != nil else {
-                        // Firebase Auth could not create account
-                        completion(false)
-                        return
-                    }
-                    // Insert into database
-                        
-                    if let idUser = result?.user.uid {
-                        Firestore.firestore().collection("users").document(idUser).setData([
-                            "id": idUser,
-                            "name": name,
-                            "email": email
-                        ])
-                    }
-                    completion(true)
-                    
-                }
-            } else {
-                // email does not exist
+        Auth.auth().createUser(withEmail: email, password: password) { result, error in
+            guard error == nil, result != nil else {
+                // Firebase Auth could not create account
                 completion(false)
+                return
             }
+            // Insert into database
+            if let idUser = result?.user.uid {
+                Firestore.firestore().collection("users").document(idUser).setData([
+                    "id": idUser,
+                    "name": name,
+                    "email": email
+                ])
+            }
+            completion(true)
             
         }
         
