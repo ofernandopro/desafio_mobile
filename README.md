@@ -42,6 +42,7 @@ Ao logar, você poderá navegar por duas Tabs, a primeira mostra um mapa com a s
 <br />
 <img src="assets/screens.png" alt="imagem-telas" />
 <br />
+<br />
  Na tela de Mapa, para testar o funcionamento, abra o simulador, na barra superior clique em Features > Location > Custom Location e selecione uma latitude e longitude. Isso porque o padrão do simulador é mostrar a localização do usuário na sede da Apple nos Estados Unidos.
 <br />
 <br />
@@ -49,6 +50,7 @@ Na tela de Perfil, você também pode escolher uma imagem de perfil ao clicar no
 <br />
 <br />
 <img src="assets/crashlytics.png" alt="imagem-painel-crashlytics" />
+<br />
 <br />
 Também foi implementado um rastreamento do login e renderização com sucesso com o Firebase Analytics. Para isso, foram criadas as seguintes chaves: "success_login", que é um evento disparado quando o login de um usuário é efetuado com sucesso, "error_on_login" quando ocorre algum erro ao efetuar o login, "sign_up" que é o recomendado do Firebase e que usa a variável AnalyticsEventSignUp, que é quando o cadastro de um novo usuário é realizado com sucesso, e o "map_rendering_success" que é ativado quando o mapa foi renderizado com sucesso. 
 <br />
@@ -58,4 +60,13 @@ No Firebase, na aba Debug View, podemos ver o comportamento desses eventos e a q
 <br />
 <img src="assets/analytics.png" alt="imagem-painel-crashlytics" />
 <br />
-
+<br />
+Os dados do usuário também foram salvos no banco de dados local, que foi escolhido o Core Data. Podemos criar um novo usuário no Core Data, atualizá-lo (há uma checagem se o id já existe e se sim, só atualiza os dados de localização).
+<br />
+<br />
+Os dados do usuário também foram salvos no banco de dados Firebase utilizando o Firestore, em que armazenamos o id, email, imagem e última localização, em que este último dado é utilizado para setar o lugar no mapa do usuário de acordo com a sua última localização.
+<br />
+Em relação aos Models, foi utilizado somente a UserModel que é uma classe para representar os dados do usuário. 
+<br />
+<br />
+Foram realizados alguns testes unitários com XCTest para testar o fluxo de login e criação de conta e também alguns testes na tela de Map. A cobertura dos testes ainda está em torno de 13%.
